@@ -18,6 +18,10 @@
     height: 1px;
     background: rgb(217, 255, 245);
   }
+  .header__content {
+    display: flex;
+    align-items: center;
+  }
   .header__burger {
     display: flex;
     justify-content: center;
@@ -32,6 +36,9 @@
   .header__logo {
     width: 97px;
     height: 51px;
+  }
+  .header__nav {
+    display: flex;
   }
   .header__items {
     display: flex;
