@@ -41,10 +41,22 @@
     display: flex;
   }
   .header__items {
+    position: relative;
     display: flex;
     gap: 16px;
 
     margin-left: 39px;
+  }
+  .header__items::before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: -20px;
+    width: 2px;
+    height: 32px;
+    border-radius: 1px;
+
+    background: rgb(234, 234, 234);
   }
   .header__items_add {
     display: none;
