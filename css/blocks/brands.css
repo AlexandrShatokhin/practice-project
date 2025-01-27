@@ -1,0 +1,47 @@
+.brands {
+  margin-top: 8px;
+}
+.brands__title {
+  margin-left: 16px;
+  margin-bottom: 32px;
+  color: rgb(126, 126, 130);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+.swiper {
+  width: 288px;
+  height: 120px;
+}
+
+.swiper-link {
+  height: 70%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid rgb(234, 234, 234);
+  border-radius: 6px;
+  background: rgb(255, 255, 255);
+}
+
+.swiper-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  box-sizing: border-box;
+  border: 2px solid rgb(255, 62, 121);
+  border-radius: 20px;
+}
+
+.swiper-pagination-bullet {
+  --swiper-pagination-bullet-width: 12px;
+  --swiper-pagination-bullet-height: 12px;
+  --swiper-pagination-bullet-inactive-color: rgb(221, 221, 221);
+  --swiper-pagination-bullet-inactive-opacity: 1;
+}
+.swiper-pagination-bullet-active {
+  --swiper-theme-color: rgb(181, 182, 188);
+}

@@ -7,12 +7,13 @@
 /* Стили по блокам */
 @import url("blocks/header.css");
 @import url("blocks/info.css");
+@import url("blocks/brands.css");
 
 * {
   font-family: "TT Lakes";
 }
 
-main {
+body {
   background: rgb(248, 248, 248);
 }
 
