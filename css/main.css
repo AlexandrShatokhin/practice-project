@@ -2,7 +2,7 @@
 @import url("base/reset.css");
 
 /* Шрифты */
-@import url("/fonts/stylesheet.css");
+@import url("../fonts/stylesheet.css");
 
 /* Стили по блокам */
 @import url("blocks/header.css");
