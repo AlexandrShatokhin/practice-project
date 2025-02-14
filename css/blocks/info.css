@@ -64,6 +64,7 @@
   }
 
   .menu__link:focus {
+    transition: 0.3s;
     box-sizing: border-box;
     border: 2px solid rgb(184, 255, 236);
     border-radius: 6px;
@@ -82,18 +83,22 @@
     letter-spacing: 0.2px;
   }
 
-  .info__subtitle_desctop {
+  .info__subtitle_mobile,
+  .info__subtitle_software,
+  .info__subtitle_desctop,
+  .info__subtitle_hidden {
     display: none;
   }
 
-  .info__subtitle_software {
-    display: none;
+  .info__subtitle_mobile {
+    display: inline;
   }
 
   .info__btn {
     width: 160px;
     height: 24px;
     padding-left: 16px;
+    cursor: pointer;
   }
 
   .info__btn_link {
@@ -109,7 +114,12 @@
     display: block;
   }
 
-  .info_img {
+  .info__img {
+    width: 100%;
+  }
+
+  .info__img_main {
+    height: auto;
     width: 100%;
     margin-top: 16px;
   }
@@ -121,22 +131,36 @@
   }
   .info__content {
     display: flex;
+    padding-right: 29px;
     flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 48px;
+  }
+  .info__text {
+    width: 750px;
   }
   .info__subtitle {
     margin-bottom: 24px;
-  }
-  .info__subtitle_desctop {
-    display: none;
-  }
-  .info__subtitle_software {
-    display: block;
     margin-bottom: 10px;
   }
-  .info_img {
+  .info__subtitle_software {
+    display: inline;
+  }
+  .info__img {
+    max-width: 600px;
+  }
+  .info__img_main {
     width: 100%;
     margin-top: 0;
     border-radius: 6px;
+  }
+  .info__btn_link {
+    opacity: 1;
+  }
+
+  .info__btn_link:hover {
+    transform: translateY(10%);
+    transform: scale(105%);
   }
 }
 
@@ -148,6 +172,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  .info__title {
+    margin-left: 34px;
+  }
+  .info__title::before {
+    left: -34px;
   }
   .head__items {
     display: flex;
@@ -164,6 +194,10 @@
     font-weight: 500;
     line-height: 24px;
   }
+  .head__link:hover {
+    transition: 0.3s;
+    color: rgb(192, 55, 96);
+  }
   .head__img {
     display: flex;
     justify-content: center;
@@ -175,23 +209,35 @@
     background: rgb(255, 62, 121);
   }
   .menu__link {
-    padding: 8px 22px;
+    padding: 8px 16px;
+  }
+  .info__menu {
+    overflow: hidden;
   }
   .info__menu ul {
     gap: 10px;
+    flex-wrap: wrap;
   }
   .info__content {
     padding: 0 29px 0 34px;
+    gap: 36px;
+    max-height: 1200px;
   }
   .info__text {
-    padding: 8px 36px 0 0;
-  }
-  .info__subtitle {
-    display: none;
+    width: 1100px;
   }
   .info__subtitle_desctop {
-    display: block;
-    padding: 0;
+    display: inline;
+  }
+
+  .info__subtitle_hidden {
+    display: none;
+  }
+  .info__img {
+    max-width: 720px;
+  }
+  .info__img_main {
+    height: auto;
   }
   .info__btn {
     padding: 0;

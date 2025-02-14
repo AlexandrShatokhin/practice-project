@@ -9,16 +9,29 @@
 @import url("blocks/info.css");
 @import url("blocks/brands.css");
 @import url("blocks/footer.css");
+@import url("blocks/aside.css");
 
 * {
   font-family: "TT Lakes";
 }
 
+html,
 body {
+  height: 100%;
+  position: relative;
   background: rgb(248, 248, 248);
 }
 
 .container {
   max-width: 1440px;
   margin: 0 auto;
+}
+.hidden {
+  display: none;
+}
+
+@media (min-width: 1440px) {
+  main, footer {
+    margin-left: 305px;
+  }
 }

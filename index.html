@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Services</title>
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
   </head>
   <body>
     <header class="header">
@@ -54,6 +56,49 @@
         </div>
       </div>
     </header>
+
+    <aside class="sidebar">
+      <div class="sidebar__up">
+        <img src="./assets/img/logo.png" alt="logo" class="sidebar__up_img" />
+        <div class="sidebar__up_search">
+          <img src="./assets/icons/search-bar.png" alt="search-bar" />
+        </div>
+      </div>
+      <ul class="sidebar__links">
+        <li class="sidebar__links_item">Ремонт техники</li>
+        <li class="sidebar__links_item">Услуги и сервисы</li>
+        <li class="sidebar__links_item">Корпоративным клиентам</li>
+        <li class="sidebar__links_item">Продавцам техники</li>
+        <li class="sidebar__links_item">Партнерам</li>
+        <li class="sidebar__links_item">Производителям</li>
+        <li class="sidebar__links_item">Наши сервисные центры</li>
+        <li class="sidebar__links_item">Контакты</li>
+      </ul>
+      <div class="sidebar__nav">
+        <div class="sidebar__nav_item">
+          <a href="#" class="item__link">
+            <img src="./assets/icons/phone.png" alt="phone" />
+          </a>
+        </div>
+        <div class="sidebar__nav_item">
+          <a href="#" class="item__link">
+            <img src="./assets/icons/sms.png" alt="sms" />
+          </a>
+        </div>
+        <div class="sidebar__nav_item">
+          <a href="#" class="item__link">
+            <img src="./assets/icons/profile.png" alt="profile" />
+          </a>
+        </div>
+      </div>
+      <a href="mailto:mail@cps.com" class="sidebar__mail">mail@cps.com</a>
+      <a href="tel:+78008908900" class="sidebar__tel">8 800 890 8900</a>
+      <div class="sidebar__lang">
+        <div class="sidebar__lang_text sidebar__lang_active">RU</div>
+        <div class="sidebar__lang_text">EN</div>
+        <div class="sidebar__lang_text">CH</div>
+      </div>
+    </aside>
 
     <main>
       <section class="info">
@@ -103,45 +148,56 @@
         <div class="info__content">
           <div class="info__text">
             <h2 class="info__subtitle">
-              Мы являемся авторизованным сервисным центром по ремонту техники
-              Dell. Только у нас вы можете отремонтировать свой ноутбук Dell с
-              официальной гарантией производителя.
-            </h2>
-            <h2 class="info__subtitle info__subtitle_software">
-              Мы успешно работаем с 1992 года и заслужили репутацию надежного
-              партнера
-            </h2>
-            <h2 class="info__subtitle info__subtitle_desctop">
-              Мы являемся авторизованным сервисным центром по ремонту техники
-              Dell. Только у нас вы можете отремонтировать свой ноутбук Dell с
-              официальной гарантией производителя.
-              <br />
-              <br />
-              Мы успешно работаем с 1992 года и заслужили репутацию надежного
-              партнера, что подтверждает большое количество постоянных клиентов.
-              Мы гордимся тем, что к нам обращаются по рекомендациям и, в свою
-              очередь, советуют нас родным и близким.
+              <span class="info__subtitle_mobile">
+                Мы являемся авторизованным сервисным центром по ремонту техники
+                Dell. Только у нас вы можете отремонтировать свой ноутбук Dell с
+                официальной гарантией производителя.</span
+              >
+              <span class="info__subtitle_software">
+                <br />
+                <br />
+                Мы успешно работаем с 1992 года и заслужили репутацию надежного
+                партнера
+                <span class="info__subtitle_desctop"
+                  >, что подтверждает большое количество постоянных клиентов. Мы
+                  гордимся тем, что к нам обращаются по рекомендациям и, в свою
+                  очередь, советуют нас родным и близким.
+                </span>
+              </span>
+              <span class="info__subtitle_hidden">
+                <br />
+                <br />
+                Наши специалисты обладают высокой квалификацией и проходят
+                регулярное обучение, что позволяет им эффективно диагностировать
+                и устранять любые неисправности. Мы используем только
+                оригинальные запчасти и современное оборудование, обеспечивая
+                высокое качество ремонта и долгий срок службы вашей техники.
+              </span>
             </h2>
             <div class="info__btn">
-              <a href="#" class="info__btn_link">
+              <div href="#" class="info__btn_link" id="info-btn-open">
                 <img src="./assets/icons/arrows.png" alt="arrows" />
                 Читать далее
-              </a>
+              </div>
+              <div class="info__btn_link hidden" id="info-btn-close">
+                <img src="./assets/icons/arrows-close.png" alt="arrows-close" />
+                <p>Скрыть</p>
+              </div>
             </div>
           </div>
-          <img
-            src="./assets/img/main-img.png"
-            alt="main-img"
-            class="info_img"
-          />
+          <div class="info__img">
+            <img
+              src="./assets/img/main-img.png"
+              alt="main-img"
+              class="info__img_main"
+            />
+          </div>
         </div>
       </section>
+
       <section class="brands">
-        <h2 class="brands__title">
-          Ремонт техники различных <br />
-          брендов
-        </h2>
-        <div class="brands__name">
+        <h2 class="brands__title">Ремонт техники различных брендов</h2>
+        <div class="brands__name brands__name-mobile">
           <div class="swiper">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
@@ -255,12 +311,120 @@
             <div class="swiper-pagination"></div>
           </div>
         </div>
+        <div class="brands__name brands__name-middle">
+          <div class="brands__wrapper">
+            <a href="#" class="brands__link">
+              <img
+                src="./assets/img/Lenovo.png"
+                alt="Lenovo"
+                class="brands__img"
+              />
+              <div class="brands__arrow">
+                <img src="./assets/icons/arrow-item.png" alt="arrow-item" />
+              </div>
+            </a>
+            <a href="#" class="brands__link">
+              <img
+                src="./assets/img/Samsung.png"
+                alt="Samsung"
+                class="brands__img"
+              />
+              <div class="brands__arrow">
+                <img src="./assets/icons/arrow-item.png" alt="arrow-item" />
+              </div>
+            </a>
+            <a href="#" class="brands__link">
+              <img
+                src="./assets/img/Apple.png"
+                alt="Apple"
+                class="brands__img"
+              />
+              <div class="brands__arrow">
+                <img src="./assets/icons/arrow-item.png" alt="arrow-item" />
+              </div>
+            </a>
+            <a href="#" class="brands__link">
+              <img
+                src="./assets/img/ViewSonic.png"
+                alt="ViewSonic"
+                class="brands__img"
+              />
+              <div class="brands__arrow">
+                <img src="./assets/icons/arrow-item.png" alt="arrow-item" />
+              </div>
+            </a>
+            <a href="#" class="brands__link">
+              <img
+                src="./assets/img/Bosch.png"
+                alt="Bosch"
+                class="brands__img"
+              />
+              <div class="brands__arrow">
+                <img src="./assets/icons/arrow-item.png" alt="arrow-item" />
+              </div>
+            </a>
+            <a href="#" class="brands__link">
+              <img src="./assets/img/Hp.png" alt="Hp" class="brands__img" />
+              <div class="brands__arrow">
+                <img src="./assets/icons/arrow-item.png" alt="arrow-item" />
+              </div>
+            </a>
+            <a href="#" class="brands__link brands__name-hidden">
+              <img src="./assets/img/Acer.png" alt="Acer" class="brands__img" />
+              <div class="brands__arrow">
+                <img src="./assets/icons/arrow-item.png" alt="arrow-item" />
+              </div>
+            </a>
+            <a href="#" class="brands__link brands__name-hidden">
+              <img src="./assets/img/Sony.png" alt="Sony" class="brands__img" />
+              <div class="brands__arrow">
+                <img src="./assets/icons/arrow-item.png" alt="arrow-item" />
+              </div>
+            </a>
+            <a href="#" class="brands__link brands__name-hidden">
+              <img
+                src="./assets/img/Lenovo.png"
+                alt="Lenovo"
+                class="brands__img"
+              />
+              <div class="brands__arrow">
+                <img src="./assets/icons/arrow-item.png" alt="arrow-item" />
+              </div>
+            </a>
+            <a href="#" class="brands__link brands__name-hidden">
+              <img
+                src="./assets/img/Samsung.png"
+                alt="Samsung"
+                class="brands__img"
+              />
+              <div class="brands__arrow">
+                <img src="./assets/icons/arrow-item.png" alt="arrow-item" />
+              </div>
+            </a>
+            <a href="#" class="brands__link brands__name-hidden">
+              <img
+                src="./assets/img/Apple.png"
+                alt="Apple"
+                class="brands__img"
+              />
+              <div class="brands__arrow">
+                <img src="./assets/icons/arrow-item.png" alt="arrow-item" />
+              </div>
+            </a>
 
-        <h2 class="brands__title">
-          Ремонт различных видов <br />
-          техники
-        </h2>
-        <div class="brands__tech">
+            <div class="brands__btn" id="name-btn-open">
+              <img src="./assets/icons/arrows.png" alt="arrows" />
+              <p>Показать все</p>
+            </div>
+            <div class="brands__btn hidden" id="name-btn-close">
+              <img src="./assets/icons/arrows-close.png" alt="arrows-close" />
+              <p>Скрыть</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="brands__title">Ремонт различных видов техники</h2>
+        <div class="brands__tech brands__tech-mobile">
           <div class="swiper swiper__tech">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
@@ -302,9 +466,64 @@
             <div class="swiper-pagination swiper-pagination-tech"></div>
           </div>
         </div>
+        <div class="brands__tech brands__tech-middle">
+          <div class="brands__wrapper brands__wrapper-tech">
+            <a href="#" class="brands__link-tech">
+              <p>Ремонт ноутбуков</p>
+              <div class="brands__arrow brands__arrow-tech">
+                <img src="./assets/icons/arrow-item.png" alt="arrow-item" />
+              </div>
+            </a>
+            <a href="#" class="brands__link-tech">
+              <p>Ремонт планшетов</p>
+              <div class="brands__arrow brands__arrow-tech">
+                <img src="./assets/icons/arrow-item.png" alt="arrow-item" />
+              </div>
+            </a>
+            <a href="#" class="brands__link-tech">
+              <p>Ремонт ПК</p>
+              <div class="brands__arrow brands__arrow-tech">
+                <img src="./assets/icons/arrow-item.png" alt="arrow-item" />
+              </div>
+            </a>
+            <a href="#" class="brands__link-tech brands__tech-hidden">
+              <p>Ремонт мониторов</p>
+              <div class="brands__arrow brands__arrow-tech">
+                <img src="./assets/icons/arrow-item.png" alt="arrow-item" />
+              </div>
+            </a>
+            <a href="#" class="brands__link-tech brands__tech-hidden">
+              <p>Ремонт мониторов</p>
+              <div class="brands__arrow brands__arrow-tech">
+                <img src="./assets/icons/arrow-item.png" alt="arrow-item" />
+              </div>
+            </a>
+            <a href="#" class="brands__link-tech brands__tech-hidden">
+              <p>Ремонт мониторов</p>
+              <div class="brands__arrow brands__arrow-tech">
+                <img src="./assets/icons/arrow-item.png" alt="arrow-item" />
+              </div>
+            </a>
+            <a href="#" class="brands__link-tech brands__tech-hidden">
+              <p>Ремонт мониторов</p>
+              <div class="brands__arrow brands__arrow-tech">
+                <img src="./assets/icons/arrow-item.png" alt="arrow-item" />
+              </div>
+            </a>
+
+            <div class="brands__btn" id="tech-btn-open">
+              <img src="./assets/icons/arrows.png" alt="arrows" />
+              <p>Показать все</p>
+            </div>
+            <div class="brands__btn hidden" id="tech-btn-close">
+              <img src="./assets/icons/arrows-close.png" alt="arrows-close" />
+              <p>Скрыть</p>
+            </div>
+          </div>
+        </div>
 
         <h2 class="brands__title brands__title_price">Цены на услуги</h2>
-        <div class="brands__price">
+        <div class="brands__price-mobile">
           <div class="swiper swiper__price">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
@@ -444,6 +663,58 @@
             <div class="swiper-pagination swiper-pagination-price"></div>
           </div>
         </div>
+        <table class="brands__price-middle">
+          <thead>
+            <tr>
+              <th scope="col" class="price__head price__head_first">
+                Ремонтные услуги
+              </th>
+              <th scope="col" class="price__head">Цена</th>
+              <th scope="col" class="price__head">Срок</th>
+              <th scope="col" class="price__head"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="price__str price__str_after">
+              <th scope="row" class="price__str_one">Диагностика</th>
+              <td class="price__str_rest">Бесплатно</td>
+              <td class="price__str_rest">30 мин</td>
+              <td><button class="price__str_btn">Заказать</button></td>
+            </tr>
+            <tr class="price__str price__str_after">
+              <th scope="row" class="price__str_one">Замена дисплея</th>
+              <td class="price__str_rest">1 000 ₽</td>
+              <td class="price__str_rest">30-120 мин</td>
+              <td><button class="price__str_btn">Заказать</button></td>
+            </tr>
+            <tr class="price__str price__str_after">
+              <th scope="row" class="price__str_one">
+                Замена полифонического динамика
+              </th>
+              <td class="price__str_rest">1 000 ₽</td>
+              <td class="price__str_rest">30-120 мин</td>
+              <td><button class="price__str_btn">Заказать</button></td>
+            </tr>
+            <tr class="price__str price__str_after">
+              <th scope="row" class="price__str_one">
+                Тестирование с выдачей технического заключения
+              </th>
+              <td class="price__str_rest">1 000 ₽</td>
+              <td class="price__str_rest">30-120 мин</td>
+              <td><button class="price__str_btn">Заказать</button></td>
+            </tr>
+            <tr class="price__str">
+              <th scope="row" class="price__str_one">
+                Замена программного обеспечения
+              </th>
+              <td class="price__str_rest">1 000 ₽</td>
+              <td class="price__str_rest">30-120 мин</td>
+              <td class="price__str_last">
+                <button class="price__str_btn">Заказать</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
         <div class="brands__duty">
           Все цены указаны с учетом НДС. Стоимость ремонта указана на единичную
@@ -462,12 +733,22 @@
     </main>
 
     <footer class="footer">
-      <div class="footer__dev">© 2019 <br> CPS Разработано командой Apesong</div>
-      <div class="footer__policy">Политика конфиденциальности</div>
-      <div class="footer__offer">Информация, размещенная на данной странице, не является публичной офертой</div>
+      <div class="footer__line"></div>
+      <div class="footer__content">
+        <div class="footer__dev">
+          © 2019 <br />
+          CPS Разработано командой Apesong
+        </div>
+        <div class="footer__policy">Политика конфиденциальности</div>
+        <div class="footer__offer">
+          Информация, размещенная на данной странице, не является публичной
+          офертой
+        </div>
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="js/swiper.js"></script>
+    <script src="./js/swiper.js"></script>
+    <script src="./js/script.js"></script>
   </body>
 </html>

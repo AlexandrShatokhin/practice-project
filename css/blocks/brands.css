@@ -3,6 +3,8 @@
     margin-top: 8px;
   }
   .brands__title {
+    display: flex;
+    align-items: center;
     position: relative;
     width: 100%;
     height: 80px;
@@ -14,12 +16,7 @@
     font-weight: 400;
     line-height: 24px;
     text-transform: uppercase;
-
-    background: linear-gradient(
-      270deg,
-      rgb(248, 248, 248),
-      rgb(255, 255, 255) 98.614%
-    );
+    z-index: 2;
   }
   .brands__title::before {
     content: "";
@@ -27,8 +24,26 @@
     top: 0;
     left: 0;
     width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      270deg,
+      rgb(248, 248, 248),
+      rgb(255, 255, 255) 98.614%
+    );
+    transform: rotate(180deg); /* Фон повернут */
+    z-index: -1; /* Размещаем фон позади текста */
+  }
+  .brands__title::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 1px;
     background: rgb(217, 255, 245);
+  }
+  .brands__name-middle {
+    display: none;
   }
   .brands__name,
   .brands__tech,
@@ -44,7 +59,7 @@
   .swiper {
     position: relative;
     width: 100%;
-    height: 130px;
+    height: 112px;
   }
 
   .swiper__tech {
@@ -56,10 +71,11 @@
   }
 
   .swiper-link {
-    height: 70%;
+    position: relative;
+    height: 72px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    padding: 16px;
     border: 1px solid rgb(234, 234, 234);
     border-radius: 6px;
     background: rgb(255, 255, 255);
@@ -129,6 +145,10 @@
   }
 
   .swiper-arrow {
+    position: absolute;
+    bottom: 50%;
+    transform: translateY(50%);
+    right: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -143,6 +163,7 @@
     position: absolute;
     bottom: 6.7%;
     right: 6.7%;
+    transform: translateY(0);
   }
 
   .swiper-pagination-bullet {
@@ -166,12 +187,245 @@
   }
   .brands__commerce {
     display: block;
+    width: 220px;
     padding-left: 16px;
-    padding-right: 33%;
+    margin-bottom: 40px;
 
     color: rgb(27, 28, 33);
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
+  }
+  .brands__commerce:hover {
+    transition: 0.3s;
+    color: rgb(192, 55, 96);
+  }
+  .brands__tech-middle {
+    display: none;
+  }
+  .brands__price-middle {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .brands__title {
+    height: 56px;
+  }
+  .brands__name-mobile {
+    display: none;
+  }
+  .brands__name-middle {
+    display: block;
+    padding: 0;
+  }
+  .brands__wrapper {
+    position: relative;
+    width: 768px;
+    margin: 0 auto;
+    margin-bottom: 56px;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 24px;
+    grid-row-gap: 16px;
+    grid-template-rows: 74px;
+    grid-auto-rows: 74px;
+  }
+  .brands__link {
+    position: relative;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(234, 234, 234);
+    border-radius: 6px;
+
+    background: rgb(255, 255, 255);
+  }
+  .brands__name-hidden {
+    display: none;
+  }
+  .brands__link-tech:hover,
+  .brands__link:hover {
+    box-shadow: 2px 4px rgba(255, 62, 121, 0.5);
+    transition: 0.3s all;
+  }
+  .brands__arrow {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    border: 2px solid rgb(255, 62, 121);
+    border-radius: 20px;
+  }
+  .brands__btn {
+    display: flex;
+    position: absolute;
+    bottom: -24px;
+    left: 20px;
+    gap: 8px;
+    color: rgb(27, 28, 33);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+
+    cursor: pointer;
+  }
+
+  .brands__btn,
+  .brands__name-hidden {
+    transition: opacity 1s ease-out;
+    opacity: 1;
+  }
+
+  .brands__btn:hover {
+    transform: translateY(10%);
+    transform: scale(105%);
+  }
+
+  .brands__tech-mobile {
+    display: none;
+  }
+  .brands__tech-middle {
+    display: grid;
+    padding: 0;
+  }
+  .brands__wrapper-tech {
+    grid-template-rows: 160px;
+    grid-auto-rows: 160px;
+  }
+  .brands__link-tech {
+    position: relative;
+    padding: 16px;
+
+    box-sizing: border-box;
+    border: 1px solid rgb(234, 234, 234);
+    border-radius: 6px;
+
+    background: rgb(255, 255, 255);
+
+    color: rgb(27, 28, 33);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+  .brands__tech-hidden {
+    display: none;
+  }
+  .brands__price-mobile {
+    display: none;
+  }
+  .brands__price-middle {
+    display: block;
+    margin: 0 auto;
+    width: 720px;
+    border-radius: 6px;
+
+    border-spacing: 0;
+  }
+  thead {
+    height: 46px;
+  }
+  .price__head {
+    color: rgb(126, 126, 130);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: left;
+
+    background: rgb(248, 248, 248);
+  }
+  tbody {
+    background: rgb(255, 255, 255);
+  }
+  .price__str,
+  .price__str_after {
+    position: relative;
+    height: 65px;
+  }
+  .price__str_after::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+    width: 688px;
+    height: 1px;
+
+    background: rgb(234, 234, 234);
+  }
+  .price__head_first {
+    padding-left: 16px;
+  }
+  th,
+  td {
+    color: rgb(27, 28, 33);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+    text-align: left;
+  }
+  .price__str_one {
+    padding-left: 16px;
+    width: 380px;
+  }
+  .price__str_rest {
+    width: 102px;
+  }
+  .price__str_last {
+    padding-right: 16px;
+  }
+  .price__str_btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    width: 119px;
+    height: 32px;
+
+    border-radius: 16px;
+    background: rgb(255, 62, 121);
+    color: rgb(255, 255, 255);
+
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: right;
+    text-transform: uppercase;
+  }
+  .price__str_btn:hover {
+    transition: 0.3s;
+    background: rgb(222, 64, 112);
+  }
+  .price__str_btn::after {
+    content: "";
+    position: absolute;
+    top: 11px;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    background: url("../../assets/icons/arrow-btn.png") no-repeat;
+  }
+  .brands__duty {
+    margin: 0 auto;
+    margin-top: 24px;
+    padding-right: 310px;
+    width: 750px;
+  }
+  .brands__commerce {
+    display: block;
+    margin: 0 auto;
+    margin-top: 16px;
+    padding: 0;
+    padding-right: 310px;
+    width: 720px;
+
+    margin-bottom: 47px;
   }
 }

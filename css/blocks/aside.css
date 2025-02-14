@@ -1,0 +1,125 @@
+@media (min-width: 320px) {
+  aside {
+    display: none;
+  }
+}
+
+@media (min-width: 1440px) {
+  aside {
+    display: block;
+    position: fixed;
+    width: 305px;
+    height: 100vh;
+
+    background: rgb(255, 255, 255);
+  }
+  .sidebar__up {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 31px 37px 21px;
+  }
+  .sidebar__up_search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+
+    background: rgb(255, 62, 121);
+  }
+  .sidebar__up_search:hover {
+    transition: 0.3s;
+    background: rgb(222, 64, 112);
+  }
+  .sidebar__links {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding-left: 23px;
+  }
+  .sidebar__links_item {
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s ease;
+    color: rgb(27, 28, 33);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+  .sidebar__links_item::before {
+    content: "";
+    position: absolute;
+    left: -23px;
+    top: 0;
+    width: 4px;
+    height: 0;
+    border-radius: 2px;
+    background: rgb(65, 246, 215);
+    transition: height 0.3s ease, top 0.3s ease;
+    transform: rotate(180deg);
+  }
+  .sidebar__links_item.active {
+    color: rgb(126, 126, 130);
+  }
+  .sidebar__links_item.active::before {
+    height: 28px;
+  }
+  .sidebar__nav {
+    margin-top: 140px;
+    margin-left: 18px;
+    display: flex;
+    gap: 16px;
+  }
+  .item__link:hover {
+    transition: 0.3s;
+    background: rgb(192, 55, 96);
+  }
+  .sidebar__mail {
+    display: block;
+    margin-top: 16px;
+    margin-left: 18px;
+
+    color: rgb(27, 28, 33);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+  .sidebar__mail:hover {
+    transition: 0.3s;
+    color: rgb(192, 55, 96);
+  }
+  .sidebar__tel {
+    margin-top: 12px;
+    margin-left: 18px;
+    display: block;
+    color: rgb(27, 28, 33);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+  }
+  .sidebar__tel:hover {
+    transition: 0.3s;
+    color: rgb(192, 55, 96);
+  }
+  .sidebar__lang {
+    margin-top: 20px;
+    margin-left: 20px;
+    display: flex;
+    gap: 7px;
+  }
+  .sidebar__lang_text {
+    color: rgb(27, 28, 33);
+    font-family: TT Lakes;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    cursor: pointer;
+  }
+  .sidebar__lang_active {
+    transition: 0.3s ease;
+    color: rgb(126, 126, 130);
+  }
+}
