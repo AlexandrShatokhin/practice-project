@@ -10,6 +10,7 @@
 @import url("blocks/brands.css");
 @import url("blocks/footer.css");
 @import url("blocks/aside.css");
+@import url("blocks/modals.css");
 
 * {
   font-family: "TT Lakes";
@@ -22,7 +23,13 @@ body {
   background: rgb(248, 248, 248);
 }
 
+main {
+  position: relative;
+  z-index: 4;
+}
+
 .container {
+  position: relative;
   max-width: 1440px;
   margin: 0 auto;
 }

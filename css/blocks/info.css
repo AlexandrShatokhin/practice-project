@@ -1,6 +1,8 @@
 @media (min-width: 320px) {
   .info {
+    position: relative;
     padding: 24px 0;
+    z-index: 4;
   }
   .info__title {
     position: relative;
@@ -167,6 +169,7 @@
 @media (min-width: 1440px) {
   .info {
     padding-top: 42px;
+    padding-bottom: 42px;
   }
   .info__head {
     display: flex;
@@ -193,6 +196,7 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
+    cursor: pointer;
   }
   .head__link:hover {
     transition: 0.3s;

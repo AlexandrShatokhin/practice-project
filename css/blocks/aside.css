@@ -7,9 +7,10 @@
 @media (min-width: 1440px) {
   aside {
     display: block;
-    position: fixed;
+    float: left;
+    overflow-y: auto;
     width: 305px;
-    height: 100vh;
+    height: 1917px;
 
     background: rgb(255, 255, 255);
   }

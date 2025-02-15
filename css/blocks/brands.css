@@ -1,6 +1,8 @@
 @media (min-width: 320px) {
   .brands {
+    position: relative;
     margin-top: 8px;
+    z-index: 4;
   }
   .brands__title {
     display: flex;
@@ -216,21 +218,26 @@
     display: none;
   }
   .brands__name-middle {
+    position: relative;
     display: block;
     padding: 0;
   }
-  .brands__wrapper {
+  .brands__wrapper,
+  .brands__wrapper-tech {
     position: relative;
-    width: 768px;
+    width: 720px;
     margin: 0 auto;
-    margin-bottom: 56px;
-    padding: 24px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    overflow: hidden;
+    gap: 16px;
+    max-height: 170px;
     grid-column-gap: 24px;
     grid-row-gap: 16px;
     grid-template-rows: 74px;
     grid-auto-rows: 74px;
+
+    transition: all 0.3s ease-in-out;
   }
   .brands__link {
     position: relative;
@@ -242,12 +249,9 @@
 
     background: rgb(255, 255, 255);
   }
-  .brands__name-hidden {
-    display: none;
-  }
   .brands__link-tech:hover,
   .brands__link:hover {
-    box-shadow: 2px 4px rgba(255, 62, 121, 0.5);
+    background-color: rgba(225, 222, 223, 0.053);
     transition: 0.3s all;
   }
   .brands__arrow {
@@ -266,9 +270,11 @@
   }
   .brands__btn {
     display: flex;
-    position: absolute;
-    bottom: -24px;
-    left: 20px;
+    margin: 0 auto;
+    margin-top: 24px;
+    margin-bottom: 32px;
+    padding-right: 310px;
+    width: 720px;
     gap: 8px;
     color: rgb(27, 28, 33);
     font-size: 16px;
@@ -278,15 +284,9 @@
     cursor: pointer;
   }
 
-  .brands__btn,
-  .brands__name-hidden {
-    transition: opacity 1s ease-out;
-    opacity: 1;
-  }
-
   .brands__btn:hover {
-    transform: translateY(10%);
-    transform: scale(105%);
+    transition: all 0.2s ease;
+    transform: translateY(3px);
   }
 
   .brands__tech-mobile {
@@ -314,9 +314,6 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
-  }
-  .brands__tech-hidden {
-    display: none;
   }
   .brands__price-mobile {
     display: none;
@@ -427,5 +424,40 @@
     width: 720px;
 
     margin-bottom: 47px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .brands__wrapper,
+  .brands__wrapper-tech {
+    width: 1056px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .brands__btn {
+    width: 1056px;
+  }
+  .brands__price-middle {
+    width: 1056px;
+  }
+  .price__str {
+    height: 67px;
+  }
+  .price__str_after::after {
+    left: 14px;
+    width: 1024px;
+  }
+  .price__str_one {
+    width: 500px;
+  }
+  .price__str_rest {
+    width: 210px;
+  }
+  .brands__duty,
+  .brands__commerce {
+    width: auto;
+    margin-left: 24px;
+  }
+  .brands__commerce {
+    margin-left: 40px;
   }
 }

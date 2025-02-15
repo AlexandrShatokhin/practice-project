@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  //Текст сайдбара в анимации палочки
+  //Текст сайдбара в анимации палочки в sidebar
   document.querySelectorAll(".sidebar__links_item").forEach((item) => {
     item.addEventListener("click", function () {
       document
@@ -17,112 +17,108 @@ document.addEventListener("DOMContentLoaded", function () {
       this.classList.add("sidebar__lang_active");
     });
   });
-  //Показывает элементы
-  function fadeIn(element) {
-    element.style.display = "flex";
-    element.style.opacity = 0;
-    let opacity = 0;
-    const fade = setInterval(() => {
-      opacity += 0.1;
-      element.style.opacity = opacity;
-      if (opacity >= 1) clearInterval(fade);
-    }, 20);
-  }
-  //Скрывает элементы
-  function fadeOut(element) {
-    let opacity = 1;
-    const fade = setInterval(() => {
-      opacity -= 0.1;
-      element.style.opacity = opacity;
-      if (opacity <= 0) {
-        clearInterval(fade);
-        element.style.display = "none";
+  //Кнопка "Читать далее"
+  const btnOpenReadMore = document.getElementById("info-btn-open");
+  const btnCloseReadMore = document.getElementById("info-btn-close");
+
+  const mobileText = document.querySelector(".info__subtitle_mobile");
+  const softwareText = document.querySelector(".info__subtitle_software");
+  const desctopText = document.querySelector(".info__subtitle_desctop");
+  const hiddenText = document.querySelector(".info__subtitle_hidden");
+
+  btnOpenReadMore.addEventListener("click", function () {
+    toggleText(true);
+  });
+
+  btnCloseReadMore.addEventListener("click", function () {
+    toggleText(false);
+  });
+
+  function toggleText(show) {
+    const screenWidth = window.innerWidth;
+
+    if (show) {
+      if (screenWidth >= 320 && screenWidth < 768) {
+        mobileText.style.display = "inline";
+        softwareText.style.display = "inline";
+        desctopText.style.display = "inline";
+        hiddenText.style.display = "inline";
+      } else if (screenWidth >= 768 && screenWidth < 1440) {
+        softwareText.style.display = "inline";
+        desctopText.style.display = "inline";
+        hiddenText.style.display = "inline";
+      } else if (screenWidth >= 1440) {
+        desctopText.style.display = "inline";
+        hiddenText.style.display = "inline";
       }
-    }, 20);
+    } else {
+      // Возвращаем те элементы, которые должны быть видны по умолчанию
+      if (screenWidth >= 320 && screenWidth < 768) {
+        mobileText.style.display = "inline";
+        softwareText.style.display = "none";
+        desctopText.style.display = "none";
+        hiddenText.style.display = "none";
+      } else if (screenWidth >= 768 && screenWidth < 1440) {
+        softwareText.style.display = "inline";
+        desctopText.style.display = "none";
+        hiddenText.style.display = "none";
+      } else if (screenWidth >= 1440) {
+        desctopText.style.display = "inline";
+        hiddenText.style.display = "none";
+      }
+    }
+
+    btnOpenReadMore.classList.toggle("hidden", show);
+    btnCloseReadMore.classList.toggle("hidden", !show);
   }
-  //Вызов функции при клике
-  function toggleVisibility(btnOpen, btnClose, items) {
-    btnOpen.addEventListener("click", function () {
-      fadeOut(btnOpen);
-      fadeIn(btnClose);
-      items.forEach(fadeIn);
+
+  //Показать и скрыть wrapper
+  const btnOpenName = document.getElementById("name-btn-open");
+  const btnCloseName = document.getElementById("name-btn-close");
+  const wrapperName = document.querySelector(".brands__wrapper");
+  const btnOpenTech = document.getElementById("tech-btn-open");
+  const btnCloseTech = document.getElementById("tech-btn-close");
+  const wrapperTech = document.querySelector(".brands__wrapper-tech");
+  // Общая функция для открытия и закрытия
+  function toggleVisibility(
+    openButton,
+    closeButton,
+    wrapper,
+    openHeight,
+    closeHeight
+  ) {
+    openButton.addEventListener("click", function () {
+      wrapper.style.maxHeight = openHeight;
+      openButton.classList.add("hidden");
+      closeButton.classList.remove("hidden");
     });
 
-    btnClose.addEventListener("click", function () {
-      fadeOut(btnClose);
-      fadeIn(btnOpen);
-      items.forEach(fadeOut);
+    closeButton.addEventListener("click", function () {
+      wrapper.style.maxHeight = closeHeight;
+      closeButton.classList.add("hidden");
+      openButton.classList.remove("hidden");
     });
   }
-  //Элементы для функции вызова
-  toggleVisibility(
-    document.getElementById("name-btn-open"),
-    document.getElementById("name-btn-close"),
-    document.querySelectorAll(".brands__name-hidden")
-  );
-  toggleVisibility(
-    document.getElementById("tech-btn-open"),
-    document.getElementById("tech-btn-close"),
-    document.querySelectorAll(".brands__tech-hidden")
-  );
+  // Инициализация для каждого блока
+  toggleVisibility(btnOpenName, btnCloseName, wrapperName, "600px", "170px");
+  toggleVisibility(btnOpenTech, btnCloseTech, wrapperTech, "600px", "170px");
 
-const btnOpen = document.getElementById("info-btn-open");
-const btnClose = document.getElementById("info-btn-close");
-
-const mobileText = document.querySelector(".info__subtitle_mobile");
-const softwareText = document.querySelector(".info__subtitle_software");
-const desctopText = document.querySelector(".info__subtitle_desctop");
-const hiddenText = document.querySelector(".info__subtitle_hidden");
-
-btnOpen.addEventListener("click", function () {
-  toggleText(true);
-});
-
-btnClose.addEventListener("click", function () {
-  toggleText(false);
-});
-
-function toggleText(show) {
-  const screenWidth = window.innerWidth;
-
-  if (show) {
-    if (screenWidth >= 320 && screenWidth < 768) {
-      mobileText.style.display = "inline";
-      softwareText.style.display = "inline";
-      desctopText.style.display = "inline";
-      hiddenText.style.display = "inline";
-    }
-    if (screenWidth >= 768 && screenWidth < 1440) {
-      softwareText.style.display = "inline";
-      desctopText.style.display = "inline";
-      hiddenText.style.display = "inline";
-    }
-    if (screenWidth >= 1440) {
-      desctopText.style.display = "inline";
-      hiddenText.style.display = "inline";
-    }
-  } else {
-
-    // Возвращаем те элементы, которые должны быть видны по умолчанию
-    if (screenWidth >= 320 && screenWidth < 768) {
-      mobileText.style.display = "inline";
-      softwareText.style.display = "none";
-      desctopText.style.display = "none";
-      hiddenText.style.display = "none";
-    }
-    if (screenWidth >= 768 && screenWidth < 1440) {
-      softwareText.style.display = "inline";
-      desctopText.style.display = "none";
-      hiddenText.style.display = "none";
-    }
-    if (screenWidth >= 1440) {
-      desctopText.style.display = "inline";
-      hiddenText.style.display = "none";
-    }
+  // Модальное окно
+  function hiddenModal() {
+    document.getElementById("modal-feedback").classList.remove("open")
   }
-
-  btnOpen.classList.toggle("hidden", show);
-  btnClose.classList.toggle("hidden", !show);
-}
-
+  document.getElementById("modal-btn").addEventListener("click", function () {
+    document.getElementById("modal-feedback").classList.add("open");
+  });
+  document.getElementById("modal-close").addEventListener("click", function () {
+    hiddenModal();
+  });
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      hiddenModal();
+    }
+  });
+  document.querySelector(".body").addEventListener("click", event => {
+    if (event.target.className === "feedback open") hiddenModal();
+  })
 });
