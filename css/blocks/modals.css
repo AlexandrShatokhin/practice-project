@@ -1,3 +1,176 @@
+@media (min-width: 320px) {
+  .feedback {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    z-index: -1;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease-in;
+    background-color: rgba(255, 255, 255, 0.951);
+  }
+  .feedback::before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    border-radius: 1px;
+
+    background: rgb(217, 255, 245);
+  }
+
+  .feedback__close {
+    position: absolute;
+    top: -50px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    z-index: 12;
+    margin-bottom: 40px;
+
+    border-radius: 20px;
+    background: rgb(255, 62, 121);
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+  }
+  .feedback__close::before,
+  .feedback__close::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: all 0.4s;
+  }
+  .feedback__close::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+  .feedback__close:hover {
+    background: rgb(222, 64, 112);
+  }
+
+  .feedback__content {
+    position: absolute;
+    padding: 12px;
+    width: 100%;
+    right: -200px;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: rgb(255, 255, 255);
+    transition: all 0.5s ease;
+    transform: scale(90%);
+
+    box-shadow: 16px 0px 52px 0px rgba(14, 24, 80, 0.2),
+      -2px 0px 4px 0px rgba(69, 79, 126, 0.02);
+  }
+  .feedback__title {
+    margin-top: 104px;
+    margin-left: 0;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+  }
+  .feedback__title::before {
+    left: -12px;
+  }
+  .feedback__inputs {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .feedback__input {
+    width: 100%;
+    height: 48px;
+    padding: 12px 16px;
+    border: 1px solid rgb(234, 234, 234);
+    border-radius: 8px;
+
+    background: rgb(255, 255, 255);
+
+    color: rgb(27, 28, 33);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+  .feedback__inputs textarea {
+    height: 118px;
+    vertical-align: top;
+    resize: none;
+  }
+  .feedback__input:focus-visible {
+    transition: 0.2s ease-in;
+    border: 1px solid rgb(11, 11, 11);
+  }
+  .feedback__descr {
+    margin-top: 16px;
+    width: 288px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+  .feedback__descr_span {
+    color: rgb(255, 62, 121);
+    cursor: pointer;
+  }
+  .feedback__btn {
+    margin-top: 21px;
+    margin-left: 142px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 18px;
+    width: 136px;
+    height: 32px;
+
+    border-radius: 16px;
+    background: rgb(255, 62, 121);
+    cursor: pointer;
+  }
+  .feedback__btn:hover {
+    transition: 0.3s;
+    background: rgb(222, 64, 112);
+  }
+  .feedback__btn_text {
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 24px;
+    text-transform: uppercase;
+  }
+  .feedback.open {
+    visibility: visible;
+    opacity: 1;
+    right: 0;
+
+    z-index: 40;
+  }
+  .feedback.open .feedback__content {
+    right: 0;
+    transform: scale(100%);
+  }
+  .feedback.open .feedback__close {
+    top: 30px;
+  }
+}
+
+@media (min-width: 360px) {
+  .feedback__close {
+    left: auto;
+    right: 310px; 
+  }
+  .feedback__content {
+    width: 360px;
+  }
+}
+
 @media (min-width: 1440px) {
   .feedback {
     position: fixed;
@@ -22,22 +195,24 @@
   }
   .feedback__content {
     position: absolute;
-	right: -440px;
+    right: -440px;
     padding: 32px;
     width: 440px;
     height: 100%;
     overflow-y: auto;
-	overflow-x: hidden;
-	background: rgb(255, 255, 255);
+    overflow-x: hidden;
+    background: rgb(255, 255, 255);
     transition: all 0.5s ease;
-	transform: scale(90%);
+    transform: scale(90%);
 
     box-shadow: 16px 0px 52px 0px rgba(14, 24, 80, 0.2),
       -2px 0px 4px 0px rgba(69, 79, 126, 0.02);
   }
 
   .feedback__close {
-    position: relative;
+    position: absolute;
+    top: -50px;
+    right: 460px;
     width: 40px;
     height: 40px;
     z-index: 12;
@@ -95,7 +270,7 @@
     font-weight: 500;
     line-height: 24px;
   }
-  .feedback__input:last-child {
+  .feedback__inputs textarea {
     height: 130px;
     vertical-align: top;
     resize: none;
@@ -141,16 +316,5 @@
     font-weight: 700;
     line-height: 24px;
     text-transform: uppercase;
-  }
-  .feedback.open {
-    visibility: visible;
-    opacity: 1;
-    right: 0;
-	
-    z-index: 40;
-  }
-  .feedback.open .feedback__content {
-	right: 0;
-	transform: scale(100%);
   }
 }

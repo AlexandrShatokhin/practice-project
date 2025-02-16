@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
   //Кнопка "Читать далее"
   const btnOpenReadMore = document.getElementById("info-btn-open");
   const btnCloseReadMore = document.getElementById("info-btn-close");
-
   const mobileText = document.querySelector(".info__subtitle_mobile");
   const softwareText = document.querySelector(".info__subtitle_software");
   const desctopText = document.querySelector(".info__subtitle_desctop");
@@ -29,7 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
   btnOpenReadMore.addEventListener("click", function () {
     toggleText(true);
   });
-
   btnCloseReadMore.addEventListener("click", function () {
     toggleText(false);
   });
@@ -103,22 +101,64 @@ document.addEventListener("DOMContentLoaded", function () {
   toggleVisibility(btnOpenName, btnCloseName, wrapperName, "600px", "170px");
   toggleVisibility(btnOpenTech, btnCloseTech, wrapperTech, "600px", "170px");
 
-  // Модальное окно
-  function hiddenModal() {
-    document.getElementById("modal-feedback").classList.remove("open")
+  // Модальные окна
+  const modalFeedback = "modal-feedback";
+  const modalCall = "modal-call";
+  const sidebar = "sidebar";
+  const btnOpenFeedback = document.querySelectorAll("#feedback-btn");
+  const btnOpenCall = document.querySelectorAll("#call-btn");
+  const btnOpenSidebar = document.querySelectorAll("#sidebar-btn");
+  const btnCloseFeedback = document.getElementById("feedback-close");
+  const btnCloseCall = document.getElementById("call-close");
+  const btnCloseSidebar = document.getElementById("sidebar-close");
+  // Общие функции для открытия и закрытия
+  function closeModal(modalId) {
+    document.getElementById(modalId).classList.remove("open");
   }
-  document.getElementById("modal-btn").addEventListener("click", function () {
-    document.getElementById("modal-feedback").classList.add("open");
-  });
-  document.getElementById("modal-close").addEventListener("click", function () {
-    hiddenModal();
-  });
+  function openModal(modalId) {
+    document.getElementById("modal-feedback").classList.remove("open");
+    document.getElementById("modal-call").classList.remove("open");
+    document.getElementById("sidebar").classList.remove("open");
+    document.getElementById(modalId).classList.add("open");
+  }
+  // Функция по срабатыванию кнопки на открытие или скрытия элементов (Меню или модалки)
+  function modalsShow(btnOpen, btnClose, element) {
+    btnOpen.forEach((button) => {
+      button.addEventListener("click", () => openModal(element));
+    });
+    btnClose.addEventListener("click", () => closeModal(element));
+  }
+  modalsShow(btnOpenFeedback, btnCloseFeedback, modalFeedback);
+  modalsShow(btnOpenCall, btnCloseCall, modalCall);
+  modalsShow(btnOpenSidebar, btnCloseSidebar, sidebar);
+  // Нажатие на Esc
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
-      hiddenModal();
+      closeModal("modal-feedback");
+      closeModal("modal-call");
+      closeModal("sidebar");
     }
   });
-  document.querySelector(".body").addEventListener("click", event => {
-    if (event.target.className === "feedback open") hiddenModal();
-  })
+  // Нажатие вне секции, чтобы закрыть
+  document.querySelector(".body").addEventListener("click", (event) => {
+    if (event.target.classList.contains("open")) {
+      closeModal("modal-feedback");
+      closeModal("modal-call");
+      closeModal("sidebar");
+    }
+  });
+
+  //Плавная анимация ссылок на якори страницы
+  document.querySelectorAll('a[href^="#"]').forEach((search) => {
+    search.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const targetId = this.getAttribute("href").substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    });
+  });
 });

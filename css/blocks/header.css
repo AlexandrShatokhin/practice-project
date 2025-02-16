@@ -21,17 +21,22 @@
   .header__content {
     display: flex;
     align-items: center;
+    gap: 17px;
   }
   .header__burger {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 17px;
     width: 40px;
     height: 40px;
     border-radius: 20px;
+    cursor: pointer;
 
     background: rgb(255, 62, 121);
+  }
+  .header__burger:hover {
+    transition: 0.3s;
+    background: rgb(222, 64, 112);
   }
   .header__logo {
     width: 97px;
@@ -45,13 +50,13 @@
     display: flex;
     gap: 16px;
 
-    margin-left: 39px;
+    margin-left: 22px;
   }
   .header__items::before {
     content: "";
     position: absolute;
     top: 4px;
-    left: -20px;
+    left: -12px;
     width: 2px;
     height: 32px;
     border-radius: 1px;
@@ -87,6 +92,9 @@
   }
   .header__items {
     margin-left: 0px;
+  }
+  .header__items::before {
+    left: -20px;
   }
   .header__items_add {
     display: flex;
