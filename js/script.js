@@ -108,9 +108,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const btnOpenFeedback = document.querySelectorAll("#feedback-btn");
   const btnOpenCall = document.querySelectorAll("#call-btn");
   const btnOpenSidebar = document.querySelectorAll("#sidebar-btn");
-  const btnCloseFeedback = document.getElementById("feedback-close");
-  const btnCloseCall = document.getElementById("call-close");
-  const btnCloseSidebar = document.getElementById("sidebar-close");
+  const btnCloseFeedback = document.querySelectorAll("#feedback-close");
+  const btnCloseCall = document.querySelectorAll("#call-close");
+  const btnCloseSidebar = document.querySelectorAll("#sidebar-close");
   // Общие функции для открытия и закрытия
   function closeModal(modalId) {
     document.getElementById(modalId).classList.remove("open");
@@ -126,7 +126,9 @@ document.addEventListener("DOMContentLoaded", function () {
     btnOpen.forEach((button) => {
       button.addEventListener("click", () => openModal(element));
     });
-    btnClose.addEventListener("click", () => closeModal(element));
+    btnClose.forEach((button) => {
+      button.addEventListener("click", () => closeModal(element));
+    });
   }
   modalsShow(btnOpenFeedback, btnCloseFeedback, modalFeedback);
   modalsShow(btnOpenCall, btnCloseCall, modalCall);

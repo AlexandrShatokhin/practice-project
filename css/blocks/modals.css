@@ -21,6 +21,7 @@
   }
 
   .feedback__close {
+    visibility: hidden;
     position: absolute;
     top: -50px;
     left: 10px;
@@ -51,6 +52,10 @@
   }
   .feedback__close:hover {
     background: rgb(222, 64, 112);
+  }
+  
+  .feedback__close-mobile {
+    visibility: visible;
   }
 
   .feedback__content {
